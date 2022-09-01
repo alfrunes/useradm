@@ -15,13 +15,20 @@
 import json
 import pytest
 import uuid
-
 from datetime import datetime, timedelta
-from pymongo import MongoClient
 from base64 import urlsafe_b64encode, urlsafe_b64decode
+from typing import List
+
+from pymongo import MongoClient
+
 from client import CliClient, ManagementApiClient, InternalApiClient
 
 import tenantadm
+
+
+TENANT_ONE: str = "tenant1id"
+TENANT_TWO: str = "tenant2id"
+TENANTS: List[str] = [TENANT_ONE, TENANT_TWO]
 
 
 def make_auth(sub, tenant=None):
